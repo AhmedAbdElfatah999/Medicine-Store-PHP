@@ -1,0 +1,82 @@
+<?php session_start();
+require('config.php');
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<!-- start page -->
+
+<div id="page">
+	<!-- start content -->
+	<div id="content">
+		<div class="post" style="margin-left:100px">
+			<h1 class="title"></h1>
+			<div class="entry" style="min-height:400px">
+				<form action='process_addcategory.php' method='POST'>
+						<b style="color:darkgreen">ADD CATEGORY </b>
+							<br/>
+							<input type='text' name= 'cat' size='25'>
+							
+							<input type='submit'  value='  ADD  '>
+							
+							<br><br>
+				</form>
+				<hr>
+				<form action='add_category_process.php' method='POST'>
+							
+							
+							
+									
+							
+							
+						<b style="color:darkgreen">DELETE CATEGORY </b>						
+							<br>
+								<select name="del">
+									<?php
+									
+										
+			
+											$query="select * from category ";
+			
+											$res=mysqli_query($conn,$query);
+											
+											while($row=mysqli_fetch_assoc($res))
+											{
+												echo "<option>".$row['cat_name'];
+											}
+			
+											
+									?>
+								</select>
+						
+							
+							<input type='submit' value='  DELETE  '>
+				</form>
+
+				<form action='delete_category.php' method='POST'>
+							<hr>
+						
+			</div>
+			
+		</div>
+		
+	</div>
+	<!-- end content -->
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
